@@ -2,107 +2,192 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>GregerCraft</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="server-icon.png">
+    <title>GregerCraft</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="resource/img/server-icon.png">
 </head>
 
 <body>
-  <!-- navbar-->
-  <section id="header">
+<!-- navbar-->
+<section id="header">
     <div class="header container">
-      <div class="nav-bar">
-        <div class="icon">
-          <a href="index.html">
-            <h1>GregerCraft</h1>
-          </a>
+        <div class="nav-bar">
+            <div class="icon">
+                <a href="index.html">
+                    <h1>GregerCraft</h1>
+                </a>
+            </div>
+            <div class="nav-list">
+                <div class="hamburger">
+                    <div class="bar"></div>
+                </div>
+                <ul>
+                    <li><a href="index.html">Server Map</a></li>
+                    <li><a href="currentServer.html">Current Mods</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="nav-list">
-          <div class="hamburger">
-            <div class="bar"></div>
-          </div>
-          <ul>
-            <li><a href="index.html">Server Map</a></li>
-			<li><a href="currentServer.html">Current Mods</a></li>
-            <li><a href="downloads.html">Downloads</a></li>
-          </ul>
-        </div>
-      </div>
     </div>
-  </section>
+</section>
 
-  <!-- middle screen text-->
-  <section id="middleText">
+<!-- middle screen text-->
+<section id="middleText">
     <div class="middleText container">
-      <div>
-        <h1>Backup Download</h1>
-        <table>
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Description</th>
-					<th>Size zipped</th>
-					<th>Size unpacked</th>
-					<th>Date Uploaded</th>
-					<th>Instructions</th>
-					<th>Download</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>V1 Full Server</td>
-					<td>With Server Map</td>
-					<td>25GB</td>
-					<td>38GB</td>
-					<td>2021-06-09</td>
-					<td><button onclick="location.href = 'instructionsServer.html'">Server Instructions</button></td>
-					<td><form method="get" action="GregerCraftV1FullServer.zip"><button type="submit">Download</button></form></td>
-				</tr>
-				<tr>
-					<td>V1 Lite Server</td>
-					<td>Without Server Map</td>
-					<td>22GB</td>
-					<td>34GB</td>
-					<td>2021-06-09</td>
-					<td><button onclick="location.href = 'instructionsServer.html'">Server Instructions</button></td>
-					<td><form method="get" action="GregerCraftV1LiteServer.zip"><button type="submit">Download</button></form></td>
-				</tr>
-				<tr>
-					<td>V1 SinglePlayer World</td>
-					<td>Without plugins</td>
-					<td>20GB</td>
-					<td>26GB</td>
-					<td>2021-06-09</td>
-					<td><button onclick="location.href = 'instructionsClient.html'">SinglePlayer Instructions</button></td>
-					<td><form method="get" action="GregerCraftV1SinglePlayer.zip"><button type="submit">Download</button></form></td>
-				</tr>
-				<tr>
-					<td>V2 Server</td>
-					<td>With plugins and map</td>
-					<td>3,7GB</td>
-					<td>5,3GB</td>
-					<td>2022-03-21</td>
-					<td><button onclick="location.href = 'instructionsServer.html'">SinglePlayer Instructions</button></td>
-					<td><form method="get" action="GregerCraftV2Server.zip"><button type="submit">Download</button></form></td>
-				</tr>
-				<tr>
-					<td>V2 SinglePlayer World</td>
-					<td>Without plugins</td>
-					<td>2,4GB</td>
-					<td>3,9GB</td>
-					<td>2022-03-21</td>
-					<td><button onclick="location.href = 'instructionsClient.html'">SinglePlayer Instructions</button></td>
-					<td><form method="get" action="GregerCraftV2SinglePlayer.zip"><button type="submit">Download</button></form></td>
-				</tr>
-			</tbody>
-		</table>
-      </div>
+        <div>
+            <h1>Downloads</h1>
+            <table CELLSPACING=0 class="downloadtable">
+                <thead>
+                <tr>
+                    <th>Season</th>
+                    <th>Server</th>
+                    <th>Singleplayer</th>
+                    <th>Date</th>
+                    <th>Version</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Season 1</td>
+                    <td>
+                        <form method="get" action="download/GregerCraftV1FullServer.zip">
+                            <button type="submit" title="Packed 25GB; Unpacked 38GB" class="downloadbutton">Download
+                            </button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="get" action="download/GregerCraftV1SinglePlayer.zip">
+                            <button type="submit" title="Packed 20GB; Unpacked 26GB" class="downloadbutton">Download
+                            </button>
+                        </form>
+                    </td>
+                    <td>2021-06-09</td>
+                    <td>1.16.4</td>
+                </tr>
+                <tr>
+                    <td>Season 2</td>
+                    <td>
+                        <form method="get" action="download/GregerCraftV2Server.zip">
+                            <button type="submit" title="Packed 3,7GB; Unpacked 5,3GB" class="downloadbutton">Download
+                            </button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="get" action="download/GregerCraftV2SinglePlayer.zip">
+                            <button type="submit" title="Packed 2,4GB; Unpacked 3,9GB" class="downloadbutton">Download
+                            </button>
+                        </form>
+                    </td>
+                    <td>2022-03-21</td>
+                    <td>1.18</td>
+                </tr>
+
+                <!--
+                    <td>With Server Map</td>
+                    <td>25GB</td>
+                    <td>38GB</td>
+                    <td>2021-06-09</td>
+                    <td><button onclick="location.href = 'instructionsServer.html'">Server Instructions</button></td>
+                    <td><form method="get" action="GregerCraftV1FullServer.zip"><button type="submit" title="Packed 25GB; Unpacked 38GB">Download</button></form></td>
+                </tr>
+                <tr>
+                    <td>V1 Lite Server</td>
+                    <td>Without Server Map</td>
+                    <td>22GB</td>
+                    <td>34GB</td>
+                    <td>2021-06-09</td>
+                    <td><button onclick="location.href = 'instructionsServer.html'">Server Instructions</button></td>
+                    <td><form method="get" action="GregerCraftV1LiteServer.zip"><button type="submit">Download</button></form></td>
+                </tr>
+                <tr>
+                    <td>V1 SinglePlayer World</td>
+                    <td>Without plugins</td>
+                    <td>20GB</td>
+                    <td>26GB</td>
+                    <td>2021-06-09</td>
+                    <td><button onclick="location.href = 'instructionsClient.html'">SinglePlayer Instructions</button></td>
+                    <td><form method="get" action="GregerCraftV1SinglePlayer.zip"><button type="submit">Download</button></form></td>
+                </tr>
+                <tr>
+                    <td>V2 Server</td>
+                    <td>With plugins and map</td>
+                    <td>3,7GB</td>
+                    <td>5,3GB</td>
+                    <td>2022-03-21</td>
+                    <td><button onclick="location.href = 'instructionsServer.html'">SinglePlayer Instructions</button></td>
+                    <td><form method="get" action="GregerCraftV2Server.zip"><button type="submit">Download</button></form></td>
+                </tr>
+                <tr>
+                    <td>V2 SinglePlayer World</td>
+                    <td>Without plugins</td>
+                    <td>2,4GB</td>
+                    <td>3,9GB</td>
+                    <td>2022-03-21</td>
+                    <td><button onclick="location.href = 'instructionsClient.html'">SinglePlayer Instructions</button></td>
+                    <td><form method="get" action="GregerCraftV2SinglePlayer.zip"><button type="submit">Download</button></form></td>
+                </tr>
+            -->
+                </tbody>
+            </table>
+        </div>
+
     </div>
-  </section>
+
+    <div class="collapsiblesection">
+        <button type="button" class="collapsible"><h2>Client Instructions</h2></button>
+        <div class="content">
+            <p>
+                Open Windows search and type "%appdata%". The file explorer should open a new window with the path
+                C:\Users\[Username]\AppData\Roaming.<br>
+                Navigate to the folder named ".minecraft" and in that to "saves".<br>
+                Open the Singleplayer .zip file and extract the contents into the saves folder.<br>
+                Start Minecraft and you should see the world in your Singleplayer selection screen.<br>
+                Older Minecraft versions than the world can usually not play the world.
+
+            </p>
+        </div>
+        <button type="button" class="collapsible"><h2>Server Instructions</h2></button>
+        <div class="content">
+            <p>
+                Open the server .zip file and extract the contents to somewhere.<br>
+                In the folder should be a .jar file that has a name like "minecraft_server", "spigot-1.XX.X" or similar.<br>
+                Sometimes it works to just double click that file to start the server.<br>
+                If that is not the case, please open a command window and change to the folder where you extracted the
+                zip.<br>
+                Example "cd C:\Users\jonat\Desktop\Minecraft\1.18.2testserver".<br>
+                Run "java -Xms#G -Xmx#G -XX:+UseG1GC -jar spigot.jar" where the # has to be replaced by the minimum and
+                maximum amount of ram you want to give the server.<br>
+                Go to the Multiplayer menu in Minecraft and connect to a new server which has the adress
+                "localhost".<br>
+                The Dynmap is accessible in browser with the url <a href="localhost:8123">localhost:8123</a>.<br>
+                Please make sure that you have an appropriate version ov Java installed. You can check that in the
+                command window with "java --version".<br>
+                1.16 requires Java 16 and 1.17 and 1.18 require Java 17.
+            </p>
+        </div>
+
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
+        </script>
+    </div>
+</section>
 
 </body>
 

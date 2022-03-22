@@ -69,6 +69,7 @@ body{
 iframe{
 	height: 100%;
 	width: 100%;
+	border: none;
 }
 
 
@@ -81,6 +82,15 @@ iframe{
     margin: 0 auto;
     padding: 0 50px;
     justify-content: flex-start;
+	color: white;
+}
+
+#middleText .collapsiblesection{
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 50px;
+	padding-top: 25px;
+	justify-content: flex-start;
 	color: white;
 }
 
@@ -116,10 +126,60 @@ a {
 	text-decoration: underline;
 }
 
+table {
+	table-layout: fixed ;
+	width: 100%;
+}
+
 th,td {
 	border: solid;
 	color: white;
 	font-size: 1.5rem;
 	padding: 10px;
 	text-align: center;
+	width: 20%;
+}
+
+.downloadbutton {
+	border: none;
+	cursor:pointer;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	border-radius: 20px;
+	background-color: transparent;
+	color: white;
+	font-size: 1.5rem;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.downloadtable th,td {
+	width: 150px;
+}
+
+.collapsible {
+	background-color: rgba(31, 30, 30, 0.24);
+	color: white;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 1.5rem;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.collapsible:hover {
+	color: #F9F871;
+}
+
+.content {
+	padding: 0 18px;
+	display: none;
+	overflow: hidden;
+	color: white;
+	font-size: 1.5rem;
+	font-family: 'Montserrat', sans-serif;
 }
