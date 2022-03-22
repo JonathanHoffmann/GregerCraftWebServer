@@ -1,0 +1,125 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+	color: black;
+}
+a{
+    text-decoration: none;
+}
+body{
+  background-color: #093d9d;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#header {
+	position: fixed;
+	z-index: 2;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 8vh;
+	
+}
+#header .header {
+	min-height: 8vh;
+	background-color: rgba(31, 30, 30, 0.24);
+}
+#header .nav-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	max-width: 1300px;
+	padding: 0 10px;
+}
+#header .nav-list ul {
+	position: initial;
+    display: block;
+    height: auto;
+    width: fit-content;
+    background-color: transparent;
+}
+#header .nav-list ul a {
+	font-size: 1.8rem;
+	font-weight: 500;
+	letter-spacing: .2rem;
+	text-decoration: none;
+	color: white;
+	text-transform: uppercase;
+	padding: 20px;
+	display: block;
+}
+#header .nav-list ul li {
+    display: inline-block;
+}
+#header .nav-list ul li:hover a {
+	color: #F9F871;
+}
+
+iframe{
+	height: 100%;
+	width: 100%;
+}
+
+
+#middleText{
+	margin-top: 8vh;
+}
+
+#middleText .middleText{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+    justify-content: flex-start;
+	color: white;
+}
+
+#middleText .dynmap {
+	width: 100%;
+	height: 92vh;
+}
+#middleText h1{
+    display: block;
+    width: fit-content;
+    font-size: 7rem;
+    position: relative;
+	height: fit-content;
+}
+
+h1:first-child{
+    color: white;
+}
+  
+h1:nth-child(2){
+    color: #F9F871;
+    font-weight: 500;
+}
+
+.icon h1 {
+	font-size: 3rem;
+	text-transform: uppercase;
+	color: white;
+}
+
+a {
+	color:white;
+	text-decoration: underline;
+}
+
+th,td {
+	border: solid;
+	color: white;
+	font-size: 1.5rem;
+	padding: 10px;
+	text-align: center;
+}

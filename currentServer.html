@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GregerCraft</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="server-icon.png">
+</head>
+
+<body>
+  <!-- navbar-->
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="icon">
+          <a href="index.html">
+            <h1>GregerCraft</h1>
+          </a>
+        </div>
+        <div class="nav-list">
+          <div class="hamburger">
+            <div class="bar"></div>
+          </div>
+          <ul>
+            <li><a href="index.html">Server Map</a></li>
+			<li><a href="currentServer.html">Current Mods</a></li>
+            <li><a href="downloads.html">Downloads</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- middle screen text-->
+    <section id="middleText">
+    <div class="middleText container">
+      <div>
+	  <h1>TLDR</h1>
+	  <p style="font-size:24px;">Commands that you can use: /spec for spectator and /setwarp 1 /warp 1 for teleportation.</p>
+	  </div>
+	  </div>
+
+    <div class="middleText container">
+      <div>
+        <h1>Gamerules</h1>
+        <table>
+			<thead>
+				<tr>
+					<th>Gamerule</th>
+					<th>Description</th>
+					<th>value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>doFireTick</td>
+					<td>Fire spreads, destroys blocks and extinguishes</td>
+					<td>false</td>
+				</tr>
+				<tr>
+					<td>playerSleepPercentage</td>
+					<td>Percentage of players needed to skip the night by sleeping</td>
+					<td>1%</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		</div>
+		<div class="middleText container">
+		<div>
+			<h1>Datapacks</h1>
+			<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Source</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Player Head Drops</td>
+					<td>When a Player is killed by a player, they drop a head of themselves</td>
+					<td><a href="https://vanillatweaks.net/picker/datapacks/">Vanilla Tweaks</a></td>
+				</tr>
+				<tr>
+					<td>More Mob Heads</td>
+					<td>Mobs can can drop heads when killed by player</td>
+					<td><a href="https://vanillatweaks.net/picker/datapacks/">Vanilla Tweaks</a></td>
+				</tr>
+				<tr>
+					<td>Silence Mobs</td>
+					<td>Mobs can be silenced by nametagging them "Silence me", "silence me" or "silence_me".</td>
+					<td><a href="https://vanillatweaks.net/picker/datapacks/">Vanilla Tweaks</a></td>
+				</tr>
+				<tr>
+					<td>Unlock all recipes</td>
+					<td>Unlocks all crafting recipes when joining the world for the first time.</td>
+					<td><a href="https://vanillatweaks.net/picker/datapacks/">Vanilla Tweaks</a></td>
+				</tr>
+				<tr>
+					<td>Armor Statues</td>
+					<td>Modify the pose of armor stands. Optain by Signing a book with the name "Statues" or send the command /trigger as_help and click on obtain in the chat.</td>
+					<td><a href="https://www.curseforge.com/minecraft/customization/armor-statues-datapack">CurseForge</a></td>
+				</tr>
+			</tbody>
+		</table>
+      </div>
+    </div>
+	    <div class="middleText container">
+      <div>
+        <h1>Spigot/Bukkit Plugins</h1>
+        <table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Commands</th>
+					<th>config</th>
+					<th>Source</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>AFK</td>
+					<td>Colors AFK players grey in Tab List</td>
+					<td>/afk</td>
+					<td><form method="get" action="configAFK.yml"><button type="submit">Download</button></form></td>
+					<td><a href="https://www.curseforge.com/minecraft/bukkit-plugins/afk-clone-with-afk-before-name-in-tablist">CurseForge</a></td>
+				</tr>
+				<tr>
+					<td>Dynmap</td>
+					<td>Shows a live map of the server</td>
+					<td></td>
+					<td></td>
+					<td><a href="https://www.spigotmc.org/resources/dynmap.274/">Spigot</a></td>
+				</tr>
+				<tr>
+					<td>FastLeafDecay</td>
+					<td>Leaves decay much faster</td>
+					<td></td>
+					<td><form method="get" action="configFastLeafDecay.yml"><button type="submit">Download</button></form></td>
+					<td><a href="https://www.curseforge.com/minecraft/mc-mods/fast-leaf-decay">CurseForge</a></td>
+				</tr>
+				<tr>
+					<td>LiteSpectator</td>
+					<td>Go into and out of spectator mode</td>
+					<td>/spec</td>
+					<td></td>
+					<td>Self made, not online</td>
+				</tr>
+				<tr>
+					<td>NoMobGriefing</td>
+					<td>Prohibits certain mobs from griefing</td>
+					<td></td>
+					<td><form method="get" action="configNoMobGriefing.yml"><button type="submit">Download</button></form></td>
+					<td><a href="https://dev.bukkit.org/projects/no-mob-griefing">CurseForge</a></td>
+				</tr>
+				<tr>
+					<td>ServerListPlus</td>
+					<td>Gives a random message for server when connecting from multiplayer menu.</td>
+					<td></td>
+					<td></td>
+					<td><a href="https://www.spigotmc.org/resources/serverlistplus.241/">Spigot</a></td>
+				</tr>
+				<tr>
+					<td>TabTPS</td>
+					<td>Shows TPS and MSPT in Tab list</td>
+					<td>/tabtps toggle tab</td>
+					<td></td>
+					<td><a href="https://www.spigotmc.org/resources/tabtps-1-8-8-1-17-show-tps-mspt-and-more-in-the-tab-menu.82528/">Spigot</a></td>
+				</tr>
+				<tr>
+					<td>WarpPoints</td>
+					<td>lets you set and teleport to warppoints</td>
+					<td>/setwarp 1 (description)<br>/warp 1 or /warp description</td>
+					<td>1 warppoint per player</td>
+					<td><a href="https://www.curseforge.com/minecraft/bukkit-plugins/warppoints">WarpPoints</a></td>
+				</tr>
+
+			</tbody>
+		</table>
+		</div>
+		</div>
+  </section>
+
+</body>
+
+</html>
