@@ -36,6 +36,11 @@ iframe {
     margin-top: 8vh;
 }
 
+#middleText .dynmap {
+    width: 100%;
+    height: 92vh;
+}
+
 #middleText .middleText {
     max-width: 1200px;
     margin: 0 auto;
@@ -51,11 +56,6 @@ iframe {
     padding-top: 25px;
     justify-content: flex-start;
     color: white;
-}
-
-#middleText .dynmap {
-    width: 100%;
-    height: 92vh;
 }
 
 #middleText h1 {
@@ -89,10 +89,11 @@ a {
 table {
     table-layout: fixed;
     width: 100%;
+    border: 1px solid;
 }
 
 th, td {
-    border: solid;
+    border: 1px solid;
     color: white;
     font-size: 1.5rem;
     padding: 10px;
@@ -143,4 +144,51 @@ th, td {
     color: white;
     font-size: 1.5rem;
     font-family: 'Montserrat', sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        padding: 0 0px;
+        width: 100%;
+    }
+
+    #middleText .collapsiblesection {
+        padding: 0 0px;
+        padding-top: 25px;
+
+    }
+
+    td, th {
+        font-size: 12px;
+        padding: 0;
+        overflow-wrap: break-word;
+    }
+
+    img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+    }
+    .downloadtable th,td {
+        width: 100%;
+    }
+
+    .downloadtable {
+        width: 100vw;
+    }
+
+    .downloadbutton {
+        font-size: 12px;
+    }
+
+    #middleText h1 {
+        font-size: 36px;
+        text-align:center;
+        display:table;
+        width:100%;
+    }
+    #middleText .middleText {
+        padding: 0 0px;
+    }
+
 }
