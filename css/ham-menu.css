@@ -1,0 +1,99 @@
+/* [ON BIG SCREEN] */
+/* (A) WRAPPER */
+#hamnav {
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 8vh;
+    min-height: 8vh;
+    background-color: rgba(31, 30, 30, 0.24);
+}
+
+#hamnav a {
+    display: none;
+}
+
+/* (B) HORIZONTAL MENU ITEMS */
+#hamitems {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
+    padding: 0 10px;
+}
+
+#hamitems a {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: .2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    display: block;
+}
+
+#hamitems a:hover {
+    color: #F9F871;
+}
+
+/* (C) HIDE HAMBURGER */
+#hamnav label, #hamburger {
+    display: none;
+}
+
+/* [ON SMALL SCREENS] */
+@media screen and (max-width: 768px) {
+    /* (A) BREAK INTO VERTICAL MENU */
+    #hamitems a {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+    }
+
+    #hamitems h1 {
+        display: none;
+    }
+
+    /* (B) SHOW HAMBURGER ICON */
+    #hamnav label {
+        display: inline-block;
+        color: white;
+        font-style: normal;
+        font-size: 1.2em;
+        padding: 10px;
+    }
+
+    #hamnav {
+        height: auto;
+        min-height: 0;
+    }
+
+    #hamnav .logo {
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 0px;
+        transform: translate(-50%, 50%);
+    }
+
+    /* (C) TOGGLE SHOW/HIDE MENU */
+    #hamitems {
+        display: none;
+    }
+
+    #hamnav input:checked ~ #hamitems {
+        display: block;
+        background-color: rgba(30, 30, 30, 0.8);
+    }
+}
