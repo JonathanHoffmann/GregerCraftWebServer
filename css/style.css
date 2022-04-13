@@ -191,4 +191,10 @@ th, td {
         padding: 0 0px;
     }
 
+    #middleText .dynmap {
+        position: fixed;
+        width: 100vw;
+        height: 95vh;
+        bottom: 0;
+    }
 }
