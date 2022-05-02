@@ -194,7 +194,7 @@ th, td {
     #middleText .dynmap {
         position: fixed;
         width: 100vw;
-        height: 95vh;
+        top: 8vh;
         bottom: 0;
     }
 }
