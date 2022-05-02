@@ -53,16 +53,20 @@
 }
 
 /* [ON SMALL SCREENS] */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1080px) { /*768 standard
     /* (A) BREAK INTO VERTICAL MENU */
     #hamitems a {
         box-sizing: border-box;
         display: block;
         width: 100%;
+        background-color: rgba(30, 30, 30, 0.8);
     }
 
-    #hamitems h1 {
+    #hamitems .logo2
+    {
         display: none;
+        padding: 0%;
+        height: 0px;
     }
 
     /* (B) SHOW HAMBURGER ICON */
@@ -94,6 +98,5 @@
 
     #hamnav input:checked ~ #hamitems {
         display: block;
-        background-color: rgba(30, 30, 30, 0.8);
     }
 }
