@@ -11,6 +11,10 @@
     background-color: rgba(31, 30, 30, 0.24);
 }
 
+#hamnav h1 {
+    text-decoration: underline;
+}
+
 #hamnav a {
     display: none;
 }
@@ -71,14 +75,16 @@
     #hamnav label {
         display: inline-block;
         color: white;
-        font-style: normal;
-        font-size: 1.2em;
-        padding: 10px;
+        height: 4vh;
+        width: 4vh;
+        position: fixed;
+        top: 2vh;
+        left: 2vh;
     }
 
     #hamnav .logo {
         display: block;
-        position: absolute;
+        position: fixed;
         left: 50%;
         top: 0px;
         transform: translate(-50%, 50%);
@@ -91,5 +97,7 @@
 
     #hamnav input:checked ~ #hamitems {
         display: block;
+        position: fixed;
+        top: 8vh;
     }
 }
