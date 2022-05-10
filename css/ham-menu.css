@@ -41,7 +41,6 @@
     letter-spacing: .2rem;
     text-decoration: none;
     color: white;
-    text-transform: uppercase;
     display: block;
 }
 
@@ -64,7 +63,7 @@
         background-color: rgba(30, 30, 30, 0.8);
     }
 
-    #hamitems .logo2
+    #hamitems .logoDesktop
     {
         display: none;
         padding: 0%;
@@ -82,7 +81,7 @@
         left: 2vh;
     }
 
-    #hamnav .logo {
+    #hamnav .logoMobile {
         display: block;
         position: fixed;
         left: 50%;

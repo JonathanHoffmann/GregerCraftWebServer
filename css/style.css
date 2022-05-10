@@ -75,12 +75,6 @@ h1:nth-child(2) {
     font-weight: 500;
 }
 
-.icon h1 {
-    font-size: 3rem;
-    text-transform: uppercase;
-    color: white;
-}
-
 a {
     color: white;
     text-decoration: underline;
