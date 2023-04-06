@@ -7,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>GregerCraft</title>
+    <link rel="stylesheet" href="css/table-sort.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/ham-menu.css">
     <link rel="icon" href="resource/img/server-icon.png">
+    <script src="js/tablesort.js"></script>
 </head>
 
 <body>
@@ -75,328 +77,367 @@
         <div class="content">
             <p>Crafting recipes are usually added through datapacks, but I listed them here for your convenience. They
                 might not show up properly in your recipe book in the game.</p>
-            <table CELLSPACING=0>
-                <thead>
-                <tr>
-                    <th style="width: 10%">Name</th>
-                    <th>Recipe</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Bell</td>
-                    <td><img src="resource/img/Recipes/crafting-grid bell.png"/></td>
-                </tr>
-                <tr>
-                    <td>Cobweb</td>
-                    <td><img src="resource/img/Recipes/crafting-grid cobweb.png"/></td>
-                </tr>
-                <tr>
-                    <td>Dispenser</td>
-                    <td><img src="resource/img/Recipes/crafting-grid dispenser.png"/></td>
-                </tr>
-                <tr>
-                    <td>Elytra</td>
-                    <td><img src="resource/img/Recipes/crafting-grid elytra.png"/></td>
-                </tr>
-                <tr>
-                    <td>Gilded Blackstone</td>
-                    <td><img src="resource/img/Recipes/crafting-grid gilded blackstone.png"/></td>
-                </tr>
-                <tr>
-                    <td>Repeater</td>
-                    <td><img src="resource/img/Recipes/crafting-grid repeater.png"/></td>
-                </tr>             
-                <tr>
-                    <td>Trident</td>
-                    <td><img src="resource/img/Recipes/crafting-grid trident.png"/></td>
-                </tr>
-                <tr>
-                    <td>Coral Blocks</td>
-                    <td><img src="resource/img/Recipes/crafting-grid coral.gif"/></td>
-                </tr>
-                <tr>
-                    <td>Horse armor (DLC)</td>
-                    <td><img src="resource/img/Recipes/crafting-grid horse.gif"/></td>
-                </tr>
-                <tr>
-                    <td>2 tall grass and fern</td>
-                    <td><img src="resource/img/Recipes/crafting-grid 2tallPlant.gif"/></td>
-                </tr>
-                <tr>
-                    <td>Calcite</td>
-                    <td><img src="resource/img/Recipes/crafting-grid calcite.png"/></td>
-                </tr>
-                <tr>
-                    <td>Red Sand</td>
-                    <td><img src="resource/img/Recipes/crafting-grid redsand.png"/></td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="table-wrap">
+                <table class="sortable" CELLSPACING=0>
+                    <span class="sr-only">, column headers with buttons are sortable.</span>
+                    <thead>
+                    <tr>
+                        <th style="width: 10%" aria-sort="ascending">
+                            <button>
+                                Name
+                                <span aria-hidden="true"></span>
+                            </button>
+                        </th>
+                        <th class="no-sort">
+                                Recipe
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Bell</td>
+                        <td><img src="resource/img/Recipes/crafting-grid bell.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>Cobweb</td>
+                        <td><img src="resource/img/Recipes/crafting-grid cobweb.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>Dispenser</td>
+                        <td><img src="resource/img/Recipes/crafting-grid dispenser.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>Elytra</td>
+                        <td><img src="resource/img/Recipes/crafting-grid elytra.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>Gilded Blackstone</td>
+                        <td><img src="resource/img/Recipes/crafting-grid gilded blackstone.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>Repeater</td>
+                        <td><img src="resource/img/Recipes/crafting-grid repeater.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>Trident</td>
+                        <td><img src="resource/img/Recipes/crafting-grid trident.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>Coral Blocks</td>
+                        <td><img src="resource/img/Recipes/crafting-grid coral.gif"/></td>
+                    </tr>
+                    <tr>
+                        <td>Horse armor (DLC)</td>
+                        <td><img src="resource/img/Recipes/crafting-grid horse.gif"/></td>
+                    </tr>
+                    <tr>
+                        <td>2 tall grass and fern</td>
+                        <td><img src="resource/img/Recipes/crafting-grid 2tallPlant.gif"/></td>
+                    </tr>
+                    <tr>
+                        <td>Calcite</td>
+                        <td><img src="resource/img/Recipes/crafting-grid calcite.png"/></td>
+                    </tr>
+                    <tr>
+                        <td>Red Sand</td>
+                        <td><img src="resource/img/Recipes/crafting-grid redsand.png"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
 
         <button type="button" class="collapsible"><h2>Datapacks and Plugins</h2></button>
         <div class="content">
-            <table CELLSPACING=0>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Commands</th>
-                    <th>Type</th>
-                    <th>Source</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Budding Amethyst Chance</td>
-                    <td>10% chance to get a budding amethyst block when Silk Touching it.</td>
-                    <td></td>
-                    <td>Plugin</td>
-                    <td><a href="https://github.com/JonathanHoffmann/BukkitBuddingAmethystChance">GitHub</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Azalea Sheer</td>
-                    <td>Breaking Azalea bushes with sheers gives the corresponding leaves and a dead bush.</td>
-                    <td></td>
-                    <td>Plugin</td>
-                    <td><a href="https://github.com/JonathanHoffmann/BukkitAzaleaSheer">GitHub</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Axobreedable</td>
-                    <td>Axolotols can be bred with Tropical Fish item in addition to Tropical Fish Bukket.</td>
-                    <td></td>
-                    <td>Datapack</td>
-                    <td><a href="https://www.planetminecraft.com/data-pack/easy-axolotl-breeding/">Planet Minecraft</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Player Head Drops</td>
-                    <td>When a Player is killed by a player, they drop a head of themselves</td>
-                    <td></td>
-                    <td>Datapack</td>
-                    <td><a href="https://vanillatweaks.net/picker/datapacks/">Vanilla Tweaks</a></td>
-                </tr>
-                <tr>
-                    <td>More Mob Heads</td>
-                    <td>Mobs can can drop heads when killed by player</td>
-                    <td></td>
-                    <td>Datapack</td>
-                    <td><a href="https://vanillatweaks.net/picker/datapacks/">Vanilla Tweaks</a></td>
-                </tr>
-                <tr>
-                    <td>Silence Mobs</td>
-                    <td>Mobs can be silenced by nametagging them "Silence me", "silence me" or "silence_me".</td>
-                    <td></td>
-                    <td>Datapack</td>
-                    <td><a href="https://vanillatweaks.net/picker/datapacks/">Vanilla Tweaks</a></td>
-                </tr>
-                <tr>
-                    <td>Unlock all recipes</td>
-                    <td>Unlocks all crafting recipes when joining the world for the first time.</td>
-                    <td></td>
-                    <td>Datapack</td>
-                    <td><a href="https://vanillatweaks.net/picker/datapacks/">Vanilla Tweaks</a></td>
-                </tr>
-                <tr>
-                    <td>Armor Statues</td>
-                    <td>Modify the pose of armor stands. Optain by Signing a book with the name "Statues" or send the
-                        command /trigger as_help and click on obtain in the chat.
-                    </td>
-                    <td></td>
-                    <td>Datapack</td>
-                    <td>
-                        <a href="https://www.curseforge.com/minecraft/customization/armor-statues-datapack">CurseForge</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Amplified Nether</td>
-                    <td>Nether generation height is larger.</td>
-                    <td></td>
-                    <td>Datapack</td>
-                    <td>
-                        <a href="https://www.planetminecraft.com/data-pack/amplified-nether-1-18/">Planet Minecraft</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Terralith</td>
-                    <td>Large changes in Overworld generation</td>
-                    <td></td>
-                    <td>Datapack</td>
-                    <td>
-                        <a href="https://www.planetminecraft.com/data-pack/terralith-overworld-evolved-100-biomes-caves-and-more/">Planet
+
+
+            <div class="table-wrap">
+                <table class="sortable" CELLSPACING=0>
+                    <span class="sr-only">, column headers with buttons are sortable.</span>
+                    <thead>
+                    <tr>
+                        <th aria-sort="ascending">
+                            <button>Name<span aria-hidden="true"></span></button>
+                        </th>
+                        <th>
+                            <button>Description<span aria-hidden="true"></span></button>
+                        </th>
+                        <th>
+                            <button>Commands<span aria-hidden="true"></span></button>
+                        </th>
+                        <th>
+                            <button>Type<span aria-hidden="true"></span></button>
+                        </th>
+                        <th>
+                            <button>Source<span aria-hidden="true"></span></button>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Budding Amethyst Chance</td>
+                        <td>10% chance to get a budding amethyst block when Silk Touching it.</td>
+                        <td></td>
+                        <td>Plugin</td>
+                        <td><a href="https://github.com/JonathanHoffmann/BukkitBuddingAmethystChance">GitHub</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Azalea Sheer</td>
+                        <td>Breaking Azalea bushes with sheers gives the corresponding leaves and a dead bush.</td>
+                        <td></td>
+                        <td>Plugin</td>
+                        <td><a href="https://github.com/JonathanHoffmann/BukkitAzaleaSheer">GitHub</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Axobreedable</td>
+                        <td>Axolotols can be bred with Tropical Fish item in addition to Tropical Fish Bukket.</td>
+                        <td></td>
+                        <td>Datapack</td>
+                        <td><a href="https://www.planetminecraft.com/data-pack/easy-axolotl-breeding/">Planet
                             Minecraft</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nullscape</td>
-                    <td>New End generation.</td>
-                    <td></td>
-                    <td>Datapack</td>
-                    <td>
-                        <a href="https://www.planetminecraft.com/data-pack/nullscape/">Planet Minecraft</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Pillager Stronghold</td>
-                    <td>Generates Pillager Castles, which are well fortified.</td>
-                    <td></td>
-                    <td>Datapack</td>
-                    <td>
-                        <a href="https://www.planetminecraft.com/data-pack/pillager-stronghold-1-16-5-worldgen-no-structure-replacement/">Planet
-                            Minecraft</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Skeleton Towers</td>
-                    <td>Small skeleton towers generate in the world.</td>
-                    <td></td>
-                    <td>Datapack</td>
-                    <td>
-                        <a href="https://www.planetminecraft.com/data-pack/skeleton-towers/">Planet
-                            Minecraft</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Armored Elytra</td>
-                    <td>Fuse an Elytra and a Chestplate together by throwing them onto an anvil and get the benefits of
-                        both.
-                    </td>
-                    <td></td>
-                    <td>Datapack</td>
-                    <td>
-                        <a href="https://www.planetminecraft.com/data-pack/armored-elytra/">Planet
-                            Minecraft</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Not too expensive Anvil</td>
-                    <td>Even after many uses, Anvils never get too expensive and is capped at 39 levels.</td>
-                    <td></td>
-                    <td>Plugin</td>
-                    <td>
-                        <a href="https://github.com/JonathanHoffmann/BukkitNotTooExpensiveAnvil">GitHub</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>AFK</td>
-                    <td>Colors AFK players grey in Tab List</td>
-                    <td>/afk</td>
-                    <td>Plugin</td>
-                    <td>
-                        <a href="https://www.curseforge.com/minecraft/bukkit-plugins/afk-clone-with-afk-before-name-in-tablist">CurseForge</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Dynmap</td>
-                    <td>Shows a live map of the server</td>
-                    <td></td>
-                    <td>Plugin</td>
-                    <td><a href="https://www.spigotmc.org/resources/dynmap.274/">Spigot</a></td>
-                </tr>
-                <tr>
-                    <td>Deepslate Generation</td>
-                    <td>When lava and water meet below Y=0, Deepslate generates instead of stone and cobblestone.</td>
-                    <td></td>
-                    <td>Plugin</td>
-                    <td><a href="https://github.com/JonathanHoffmann/BukkitDeepslateGeneration">GitHub</a></td>
-                </tr>
-                <tr>
-                    <td>FastLeafDecay</td>
-                    <td>Leaves decay much faster</td>
-                    <td></td>
-                    <td>Plugin</td>
-                    <td><a href="https://www.curseforge.com/minecraft/mc-mods/fast-leaf-decay">CurseForge</a></td>
-                </tr>
-                <tr>
-                    <td>LiteSpectator</td>
-                    <td>Go into and out of spectator mode</td>
-                    <td>/spec</td>
-                    <td>Plugin</td>
-                    <td><a href="https://github.com/JonathanHoffmann/BukkitLiteSpectator">GitHub</a></td>
-                </tr>
-                <tr>
-                    <td>NoMobGriefing</td>
-                    <td>Prohibits certain mobs from griefing</td>
-                    <td></td>
-                    <td>Plugin</td>
-                    <td><a href="https://dev.bukkit.org/projects/no-mob-griefing">CurseForge</a></td>
-                </tr>
-                <tr>
-                    <td>RandomMOTD</td>
-                    <td>Gives a random message for server when connecting from multiplayer menu.</td>
-                    <td></td>
-                    <td>Plugin</td>
-                    <td><a href="https://www.curseforge.com/minecraft/bukkit-plugins/bukkitrandommotd">CurseForge</a></td>
-                </tr>
-                <tr>
-                    <td>TotemStorage</td>
-                    <td>Can virtually save up to 3 totems of undying without using inventory space. Costs a diamond to store. Used as if in hand when dying.</td>
-                    <td>/storetotem</td>
-                    <td>Plugin</td>
-                    <td><a href="https://www.curseforge.com/minecraft/bukkit-plugins/totemstorage">CurseForge</a></td>
-                </tr>
-                <tr>
-                    <td>TabTPS</td>
-                    <td>Shows TPS and MSPT in Tab list</td>
-                    <td>/tabtps toggle tab</td>
-                    <td>Plugin</td>
-                    <td>
-                        <a href="https://www.spigotmc.org/resources/tabtps-1-8-8-1-17-show-tps-mspt-and-more-in-the-tab-menu.82528/">Spigot</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>WorldBoarder</td>
-                    <td>Configurable World Boarder</td>
-                    <td></td>
-                    <td>Plugin</td>
-                    <td>
-                        <a href="https://www.spigotmc.org/resources/worldborder-pures-fork.81706/">Spigot</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>VillagerInfoCommand</td>
-                    <td>Gives you information about a villager.</td>
-                    <td>/VillagerInfo</td>
-                    <td>Plugin</td>
-                    <td>
-                        <a href="https://github.com/JonathanHoffmann/BukkitVillagerInfoCommand">GitHub</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>TeleportLodestone</td>
-                    <td>Teleport to a Lodestone by rightclicking a compass in an itemframe that points to a lodestone.</td>
-                    <td></td>
-                    <td>Plugin</td>
-                    <td>
-                        <a href="https://github.com/JonathanHoffmann/LodestoneTeleport">GitHub</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Minepacks</td>
-                    <td>Gives you 6 rows of additional storage. Right click the packpack in your inventory or use the
-                        command to access it.
-                    </td>
-                    <td>/backpack</td>
-                    <td>Plugin</td>
-                    <td>
-                        <a href="https://www.spigotmc.org/resources/minepacks-backpack-plugin-mc-1-7-1-18.19286/">Spigot</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Dragon Egg</td>
-                    <td>Ender Dragon drops a Dragon egg every time he dies.</td>
-                    <td></td>
-                    <td>Plugin</td>
-                    <td>
-                        <a href="https://www.spigotmc.org/resources/ender-dragon-always-drops-egg-when-killed.89118/">Spigot</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Player Head Drops</td>
+                        <td>When a Player is killed by a player, they drop a head of themselves</td>
+                        <td></td>
+                        <td>Datapack</td>
+                        <td><a href="https://vanillatweaks.net/picker/datapacks/">Vanilla Tweaks</a></td>
+                    </tr>
+                    <tr>
+                        <td>More Mob Heads</td>
+                        <td>Mobs can can drop heads when killed by player</td>
+                        <td></td>
+                        <td>Datapack</td>
+                        <td><a href="https://vanillatweaks.net/picker/datapacks/">Vanilla Tweaks</a></td>
+                    </tr>
+                    <tr>
+                        <td>Silence Mobs</td>
+                        <td>Mobs can be silenced by nametagging them "Silence me", "silence me" or "silence_me".</td>
+                        <td></td>
+                        <td>Datapack</td>
+                        <td><a href="https://vanillatweaks.net/picker/datapacks/">Vanilla Tweaks</a></td>
+                    </tr>
+                    <tr>
+                        <td>Unlock all recipes</td>
+                        <td>Unlocks all crafting recipes when joining the world for the first time.</td>
+                        <td></td>
+                        <td>Datapack</td>
+                        <td><a href="https://vanillatweaks.net/picker/datapacks/">Vanilla Tweaks</a></td>
+                    </tr>
+                    <tr>
+                        <td>Armor Statues</td>
+                        <td>Modify the pose of armor stands. Optain by Signing a book with the name "Statues" or send
+                            the
+                            command /trigger as_help and click on obtain in the chat.
+                        </td>
+                        <td></td>
+                        <td>Datapack</td>
+                        <td>
+                            <a href="https://www.curseforge.com/minecraft/customization/armor-statues-datapack">CurseForge</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Amplified Nether</td>
+                        <td>Nether generation height is larger.</td>
+                        <td></td>
+                        <td>Datapack</td>
+                        <td>
+                            <a href="https://www.planetminecraft.com/data-pack/amplified-nether-1-18/">Planet
+                                Minecraft</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Terralith</td>
+                        <td>Large changes in Overworld generation</td>
+                        <td></td>
+                        <td>Datapack</td>
+                        <td>
+                            <a href="https://www.planetminecraft.com/data-pack/terralith-overworld-evolved-100-biomes-caves-and-more/">Planet
+                                Minecraft</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nullscape</td>
+                        <td>New End generation.</td>
+                        <td></td>
+                        <td>Datapack</td>
+                        <td>
+                            <a href="https://www.planetminecraft.com/data-pack/nullscape/">Planet Minecraft</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pillager Stronghold</td>
+                        <td>Generates Pillager Castles, which are well fortified.</td>
+                        <td></td>
+                        <td>Datapack</td>
+                        <td>
+                            <a href="https://www.planetminecraft.com/data-pack/pillager-stronghold-1-16-5-worldgen-no-structure-replacement/">Planet
+                                Minecraft</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Skeleton Towers</td>
+                        <td>Small skeleton towers generate in the world.</td>
+                        <td></td>
+                        <td>Datapack</td>
+                        <td>
+                            <a href="https://www.planetminecraft.com/data-pack/skeleton-towers/">Planet
+                                Minecraft</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Armored Elytra</td>
+                        <td>Fuse an Elytra and a Chestplate together by throwing them onto an anvil and get the benefits
+                            of
+                            both.
+                        </td>
+                        <td></td>
+                        <td>Datapack</td>
+                        <td>
+                            <a href="https://www.planetminecraft.com/data-pack/armored-elytra/">Planet
+                                Minecraft</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Not too expensive Anvil</td>
+                        <td>Even after many uses, Anvils never get too expensive and is capped at 39 levels.</td>
+                        <td></td>
+                        <td>Plugin</td>
+                        <td>
+                            <a href="https://github.com/JonathanHoffmann/BukkitNotTooExpensiveAnvil">GitHub</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>AFK</td>
+                        <td>Colors AFK players grey in Tab List</td>
+                        <td>/afk</td>
+                        <td>Plugin</td>
+                        <td>
+                            <a href="https://www.curseforge.com/minecraft/bukkit-plugins/afk-clone-with-afk-before-name-in-tablist">CurseForge</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dynmap</td>
+                        <td>Shows a live map of the server</td>
+                        <td></td>
+                        <td>Plugin</td>
+                        <td><a href="https://www.spigotmc.org/resources/dynmap.274/">Spigot</a></td>
+                    </tr>
+                    <tr>
+                        <td>Deepslate Generation</td>
+                        <td>When lava and water meet below Y=0, Deepslate generates instead of stone and cobblestone.
+                        </td>
+                        <td></td>
+                        <td>Plugin</td>
+                        <td><a href="https://github.com/JonathanHoffmann/BukkitDeepslateGeneration">GitHub</a></td>
+                    </tr>
+                    <tr>
+                        <td>FastLeafDecay</td>
+                        <td>Leaves decay much faster</td>
+                        <td></td>
+                        <td>Plugin</td>
+                        <td><a href="https://www.curseforge.com/minecraft/mc-mods/fast-leaf-decay">CurseForge</a></td>
+                    </tr>
+                    <tr>
+                        <td>LiteSpectator</td>
+                        <td>Go into and out of spectator mode</td>
+                        <td>/spec</td>
+                        <td>Plugin</td>
+                        <td><a href="https://github.com/JonathanHoffmann/BukkitLiteSpectator">GitHub</a></td>
+                    </tr>
+                    <tr>
+                        <td>NoMobGriefing</td>
+                        <td>Prohibits certain mobs from griefing</td>
+                        <td></td>
+                        <td>Plugin</td>
+                        <td><a href="https://dev.bukkit.org/projects/no-mob-griefing">CurseForge</a></td>
+                    </tr>
+                    <tr>
+                        <td>RandomMOTD</td>
+                        <td>Gives a random message for server when connecting from multiplayer menu.</td>
+                        <td></td>
+                        <td>Plugin</td>
+                        <td>
+                            <a href="https://www.curseforge.com/minecraft/bukkit-plugins/bukkitrandommotd">CurseForge</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TotemStorage</td>
+                        <td>Can virtually save up to 3 totems of undying without using inventory space. Costs a diamond
+                            to
+                            store. Used as if in hand when dying.
+                        </td>
+                        <td>/storetotem</td>
+                        <td>Plugin</td>
+                        <td><a href="https://www.curseforge.com/minecraft/bukkit-plugins/totemstorage">CurseForge</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TabTPS</td>
+                        <td>Shows TPS and MSPT in Tab list</td>
+                        <td>/tabtps toggle tab</td>
+                        <td>Plugin</td>
+                        <td>
+                            <a href="https://www.spigotmc.org/resources/tabtps-1-8-8-1-17-show-tps-mspt-and-more-in-the-tab-menu.82528/">Spigot</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>WorldBoarder</td>
+                        <td>Configurable World Boarder</td>
+                        <td></td>
+                        <td>Plugin</td>
+                        <td>
+                            <a href="https://www.spigotmc.org/resources/worldborder-pures-fork.81706/">Spigot</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>VillagerInfoCommand</td>
+                        <td>Gives you information about a villager.</td>
+                        <td>/VillagerInfo</td>
+                        <td>Plugin</td>
+                        <td>
+                            <a href="https://github.com/JonathanHoffmann/BukkitVillagerInfoCommand">GitHub</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TeleportLodestone</td>
+                        <td>Teleport to a Lodestone by rightclicking a compass in an itemframe that points to a
+                            lodestone.
+                        </td>
+                        <td></td>
+                        <td>Plugin</td>
+                        <td>
+                            <a href="https://github.com/JonathanHoffmann/LodestoneTeleport">GitHub</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Minepacks</td>
+                        <td>Gives you 6 rows of additional storage. Right click the packpack in your inventory or use
+                            the
+                            command to access it.
+                        </td>
+                        <td>/backpack</td>
+                        <td>Plugin</td>
+                        <td>
+                            <a href="https://www.spigotmc.org/resources/minepacks-backpack-plugin-mc-1-7-1-18.19286/">Spigot</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dragon Egg</td>
+                        <td>Ender Dragon drops a Dragon egg every time he dies.</td>
+                        <td></td>
+                        <td>Plugin</td>
+                        <td>
+                            <a href="https://www.spigotmc.org/resources/ender-dragon-always-drops-egg-when-killed.89118/">Spigot</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <script>
             var coll = document.getElementsByClassName("collapsible");
