@@ -8,7 +8,7 @@
             "type": "shell",
             "dependsOn": "",
             "command": [
-                "ssh mc@gregercraft.serveminecraft.net cd /media/data/GregerCraftWebServer; git fetch; git pull"
+                "ssh mc@gregercraft.serveminecraft.net cd /media/data/GregerCraftWebServer; echo 'git fetch'; git fetch; echo 'git pull'; git pull"
             ],
             "group": "build",
             "presentation": {
