@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Elisabet wedding gallery</title>
+    <link rel="stylesheet" href="css/wedding.css">
+    <link rel="stylesheet" href="css/wedding_gallery.css">
+    <link rel="stylesheet" href="css/wedding_modal.css">
+    <link rel="stylesheet" href="css/wedding_footer.css">
+    <link rel="icon" href="wedding-ring.png">
+</head>
+
+<body>
+
+    <!-- Full-screen image viewer modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <a class="prev" onclick="changeModalImage(-1)">&#10094;</a>
+        <a class="next" onclick="changeModalImage(1)">&#10095;</a>
+        <video class="modal-content" id="modalVideo" controls>
+    </div>
+
+    <div class="gallery">
+        <!-- JavaScript will populate this section with images -->
+    </div>
+
+    <!-- Include the common footer for download and upload buttons -->
+    <footer class="site-footer">
+        <form id="upload-form" enctype="multipart/form-data">
+            <input type="button" id="loadFileXml" value="Upload pictures"
+                onclick="document.getElementById('file-input').click();" />
+            <input type="file" style="display:none;" name="file[]" id="file-input" multiple>
+        </form>
+        <input type="button" id="downloadAllButton" value="Download all pictures">
+
+    </footer>
+
+    <script>
+        // Call displayImages() when the page loads
+        window.onload = function () {
+            displayImages();
+        };
+    </script>
+    <script src="wedding.js"></script>
+
+</body>
+
+</html>
