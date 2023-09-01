@@ -5,13 +5,13 @@ const modal = document.querySelector('.modal');
 const galleryDiv = document.querySelector('.gallery');
 const fileInput = document.querySelector('#file-input');
 
+//Fields
 const debugFlag = true;
 var medias = [];
 let modalIndex = 0;
 var fragment;
 var folder = "";
-var folderHistory = []; // Maintain a history of visited folders
-
+const noaddphotofolders = ["Fotograf Elin & Henrik", "Fujifilm"];
 
 function dbg(msg) {
     if (debugFlag) {
@@ -32,15 +32,17 @@ async function displayImages() {
 
         if (Array.isArray(data)) {
             if (folder == "") {
+                const newURL = window.location.origin + window.location.pathname;
+                window.history.pushState({ folder: "" }, '', newURL);
                 dbg("Checking base folder");
                 renderFolders(data);
-                renderMedia(data);
+                renderMedia(data, "");
             }
             else {
                 data.forEach(media => {
                     if (media.type === 'folder' && media.name == folder) {
                         dbg(media.contents);
-                        renderMedia(media.contents);
+                        renderMedia(media.contents, media.name);
                     }
                 });
             }
@@ -71,6 +73,9 @@ function renderFolders(data) {
             //Image
             const folderIcon = document.createElement('img');
             folderIcon.src = 'res/folder_icon.png';
+            if (media.name == "Fujifilm") {
+                folderIcon.src = 'res/fujifilm.png';
+            }
             folderIcon.alt = 'Folder Icon';
             folderIcon.className = ("logoImage");
             folderElement.appendChild(folderIcon);
@@ -108,7 +113,7 @@ function renderFolders(data) {
     addFolderElement.appendChild(addFolderName);
 }
 
-function renderMedia(data) {
+function renderMedia(data, foldername) {
     data.forEach(media => {
         if (media.type === 'file') {
             // Create a media element based on the file extension
@@ -121,13 +126,16 @@ function renderMedia(data) {
         }
     });
 
-    // Add pictures button
-    const addImageElement = document.createElement('img');
-    addImageElement.src = 'res/add_image_icon.png';
-    addImageElement.className = ("gallerycontent");
-    addImageElement.alt = 'Add image icon';
-    addImageElement.setAttribute("onclick", "document.getElementById('file-input').click();");
-    fragment.appendChild(addImageElement);
+    //uploadpicturebutton
+    if (!noaddphotofolders.includes(foldername)) {
+        // Add pictures button
+        const addImageElement = document.createElement('img');
+        addImageElement.src = 'res/add_image_icon.png';
+        addImageElement.className = ("gallerycontent");
+        addImageElement.alt = 'Add image icon';
+        addImageElement.setAttribute("onclick", "document.getElementById('file-input').click();");
+        fragment.appendChild(addImageElement);
+    }
 
     // Download pictures button
     const downloadImageElement = document.createElement('img');
@@ -363,7 +371,7 @@ function changeFolder(newFolder) {
 }
 
 // Event handler for the back button
-window.onpopstate = function(event) {
+window.onpopstate = function (event) {
     if (event.state && event.state.folder) {
         folder = event.state.folder;
         displayImages();
