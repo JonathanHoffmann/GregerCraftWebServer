@@ -1,14 +1,17 @@
-let modalIndex = 0;
+// HTML elements
 const modalImage = document.getElementById('modalImage');
 const modalVideo = document.getElementById('modalVideo');
 const modal = document.querySelector('.modal');
 const galleryDiv = document.querySelector('.gallery');
-const uploadForm = document.querySelector('#upload-form');
 const fileInput = document.querySelector('#file-input');
+
 const debugFlag = true;
 var medias = [];
+let modalIndex = 0;
 var fragment;
 var folder = "";
+var folderHistory = []; // Maintain a history of visited folders
+
 
 function dbg(msg) {
     if (debugFlag) {
@@ -17,7 +20,6 @@ function dbg(msg) {
 }
 
 async function displayImages() {
-    fileInput.innerHTML = "ha";
     medias = [];
     dbg("looking for folder [" + folder + "]");
     try {
@@ -63,7 +65,7 @@ function renderFolders(data) {
             // Base div
             const folderElement = document.createElement('div');
             folderElement.className = "gallerycontent";
-            folderElement.setAttribute("onclick", "folder=\"" + media.name + "\"; displayImages();");
+            folderElement.setAttribute("onclick", "changeFolder(\"" + media.name + "\");");
             fragment.appendChild(folderElement);
 
             //Image
@@ -347,5 +349,27 @@ function createFolder() {
             });
     } else {
         alert('Please enter a folder name.');
+    }
+}
+
+// Function to change folder and update URL
+function changeFolder(newFolder) {
+    folder = newFolder;
+    displayImages();
+
+    // Use pushState to update the URL and store the folder in the history state
+    const newURL = window.location.origin + window.location.pathname + '?folder=' + newFolder;
+    window.history.pushState({ folder: newFolder }, '', newURL);
+}
+
+// Event handler for the back button
+window.onpopstate = function(event) {
+    if (event.state && event.state.folder) {
+        folder = event.state.folder;
+        displayImages();
+    } else {
+        // Handle the case where there's no folder in the state (e.g., going back to the base folder)
+        folder = '';
+        displayImages();
     }
 }
