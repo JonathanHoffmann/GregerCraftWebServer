@@ -2,12 +2,13 @@ let modalIndex = 0;
 const modalImage = document.getElementById('modalImage');
 const modalVideo = document.getElementById('modalVideo');
 const modal = document.querySelector('.modal');
-const modalContent = document.querySelector('.modal-content');
 const galleryDiv = document.querySelector('.gallery');
 const uploadForm = document.querySelector('#upload-form');
 const fileInput = document.querySelector('#file-input');
-const downloadAllButton = document.getElementById('downloadAllButton');
 const debugFlag = true;
+var medias = [];
+var fragment;
+var folder = "";
 
 function dbg(msg) {
     if (debugFlag) {
@@ -17,21 +18,30 @@ function dbg(msg) {
 
 async function displayImages() {
     fileInput.innerHTML = "ha";
+    medias = [];
+    dbg("looking for folder [" + folder + "]");
     try {
         const response = await fetch('get_images.php');
         const data = await response.json();
 
         dbg('Received data:', data);
 
-        const fragment = document.createDocumentFragment();
+        fragment = document.createDocumentFragment();
 
         if (Array.isArray(data)) {
-            data.forEach(mediaName => {
-                const mediaElement = createMediaElement(mediaName);
-                if (mediaElement) {
-                    fragment.appendChild(mediaElement);
-                }
-            });
+            if (folder == "") {
+                dbg("Checking base folder");
+                renderFolders(data);
+                renderMedia(data);
+            }
+            else {
+                data.forEach(media => {
+                    if (media.type === 'folder' && media.name == folder) {
+                        dbg(media.contents);
+                        renderMedia(media.contents);
+                    }
+                });
+            }
         } else {
             dbg('Data is not an array:', data);
         }
@@ -39,23 +49,106 @@ async function displayImages() {
         // Clear the gallery and append the fragment
         galleryDiv.innerHTML = '';
         galleryDiv.appendChild(fragment);
-        const medias = galleryDiv.querySelectorAll('img, video'); // Query images and videos inside the galleryDiv
-        //const videos = galleryDiv.querySelectorAll('video');
         attachMediaEvents(medias);
-        //attachImageMouseoverEvent(images);
-        //attachVideoMouseOverEvent(videos);
     } catch (error) {
         dbg('Error:', error);
     }
+}
 
+function renderFolders(data) {
+    data.forEach(media => {
+        if (media.type === 'folder') {
+            dbg("adding folder " + media.name);
+            // Create a folder element with an icon for each folder
+            // Base div
+            const folderElement = document.createElement('div');
+            folderElement.className = "gallerycontent";
+            folderElement.setAttribute("onclick", "folder=\"" + media.name + "\"; displayImages();");
+            fragment.appendChild(folderElement);
+
+            //Image
+            const folderIcon = document.createElement('img');
+            folderIcon.src = 'res/folder_icon.png';
+            folderIcon.alt = 'Folder Icon';
+            folderIcon.className = ("logoImage");
+            folderElement.appendChild(folderIcon);
+
+            //Folder Name
+            const folderName = document.createElement('div');
+            folderName.className = 'galleryButtonTag';
+            folderName.textContent = media.name;
+            folderElement.appendChild(folderName);
+
+        }
+
+    });
+
+    // Create add new Folder element
+    // Base div
+    const addFolderElement = document.createElement('div');
+    addFolderElement.className = "gallerycontent";
+    fragment.appendChild(addFolderElement);
+
+    // Image
+    const addFolderIcon = document.createElement('img');
+    addFolderIcon.src = 'res/add_folder_icon.png';
+    addFolderIcon.alt = 'add folder Icon';
+    addFolderIcon.className = ("logoImage");
+    addFolderIcon.setAttribute("onclick", "createFolder();");
+    addFolderElement.appendChild(addFolderIcon);
+
+    // Textfield
+    const addFolderName = document.createElement('input');
+    addFolderName.id = "new_folder_name";
+    addFolderName.className = 'galleryButtonTag';
+    addFolderName.type = 'text';
+    addFolderName.placeholder = "New folder name";
+    addFolderElement.appendChild(addFolderName);
+}
+
+function renderMedia(data) {
+    data.forEach(media => {
+        if (media.type === 'file') {
+            // Create a media element based on the file extension
+            const mediaElement = createMediaElement(media.name);
+            mediaElement.className = "modalable gallerycontent";
+            if (mediaElement) {
+                fragment.appendChild(mediaElement);
+                medias.push(mediaElement);
+            }
+        }
+    });
+
+    // Add pictures button
+    const addImageElement = document.createElement('img');
+    addImageElement.src = 'res/add_image_icon.png';
+    addImageElement.className = ("gallerycontent");
+    addImageElement.alt = 'Add image icon';
+    addImageElement.setAttribute("onclick", "document.getElementById('file-input').click();");
+    fragment.appendChild(addImageElement);
+
+    // Download pictures button
+    const downloadImageElement = document.createElement('img');
+    downloadImageElement.src = 'res/download_icon.png';
+    downloadImageElement.className = ("gallerycontent");
+    downloadImageElement.alt = 'Download image icon';
+    downloadImageElement.setAttribute("onclick", "download()");
+    fragment.appendChild(downloadImageElement);
 }
 
 // Function to create a media element based on the file extension
 function createMediaElement(mediaName) {
-    const mediaPath = 'img/' + mediaName;
+    dbg("Creating media element for " + mediaName);
+    var mediaPath;
+    if (folder == "") {
+        mediaPath = 'img/' + mediaName;
+    }
+    else {
+        mediaPath = 'img/' + folder + "/" + mediaName;
+    }
     const mediaExtension = mediaName.split('.').pop().toLowerCase();
 
-    if (mediaExtension === 'jpg' || mediaExtension === 'jpeg' || mediaExtension === 'png') {
+    if (mediaExtension === 'jpg' || mediaExtension === 'jpeg' || mediaExtension === 'png' || mediaExtension === 'gif') {
         // Create an image element for images
         const imageElement = document.createElement('img');
         imageElement.src = mediaPath;
@@ -70,9 +163,8 @@ function createMediaElement(mediaName) {
         return videoElement;
     }
 
-    return null; // Return null for unsupported media types
+    return null;
 }
-
 
 // Open the full-screen image modal
 function openModal(media) {
@@ -85,8 +177,7 @@ function openModal(media) {
         modalVideo.play();
 
     }
-    else
-    {
+    else {
         modalImage.src = media.src;
         modalImage.style.display = 'block';
         modalVideo.style.display = 'none';
@@ -99,18 +190,16 @@ function closeModal() {
     modalVideo.pause();
 }
 
-
 // Change the image in the full-screen modal
 function changeModalImage(n) {
-    const medias = galleryDiv.querySelectorAll('img, video'); // Query images and videos inside the galleryDiv
     modalVideo.pause();
     modalIndex += n;
-    dbg("Looking at modal index " + modalIndex);
     if (modalIndex >= medias.length) {
         modalIndex = 0;
     } else if (modalIndex < 0) {
         modalIndex = medias.length - 1;
     }
+    dbg("Looking at modal index " + modalIndex);
 
     if (medias[modalIndex].tagName == 'VIDEO') {
         modalImage.style.display = 'none';
@@ -120,43 +209,36 @@ function changeModalImage(n) {
         modalVideo.play();
 
     }
-    else
-    {
+    else {
         modalImage.src = medias[modalIndex].src;
         modalImage.style.display = 'block';
         modalVideo.style.display = 'none';
     }
 }
 
-
-// Attach click event to close button and arrow buttons
-const closeBtn = document.querySelector('.close');
-closeBtn.addEventListener('click', closeModal);
-
-downloadAllButton.addEventListener('click', () => {
-    const images = document.querySelectorAll('.gallery img');
-    const totalImages = images.length;
+function download() {
+    const totalMedia = medias.length;
     let totalSize = 0;
 
-    images.forEach(image => {
-        totalSize += image.naturalWidth * image.naturalHeight; // Calculate approximate image size
+    medias.forEach(media => {
+        totalSize += media.naturalWidth * media.naturalHeight;
     });
 
     const totalSizeInMB = (totalSize / (1024 * 1024)).toFixed(2);
 
-    const confirmMessage = `You are about to download ${totalImages} images, which may take some time and use approximately ${totalSizeInMB} MB of storage. Are you sure you want to continue?`;
+    const confirmMessage = `You are about to download ${totalMedia} images, which may take some time and use approximately ${totalSizeInMB} MB of storage. Are you sure you want to continue?`;
 
     if (window.confirm(confirmMessage)) {
-        images.forEach(image => {
-            const imageURL = image.src;
-            const imageName = imageURL.substring(imageURL.lastIndexOf('/') + 1);
+        medias.forEach(media => {
+            const mediaURL = media.src;
+            const mediaName = mediaURL.substring(mediaURL.lastIndexOf('/') + 1);
             const link = document.createElement('a');
-            link.href = imageURL;
-            link.download = imageName;
+            link.href = mediaURL;
+            link.download = mediaName;
             link.click();
         });
     }
-});
+}
 
 
 // Automatically submit the form when files are selected
@@ -166,6 +248,7 @@ fileInput.addEventListener('change', () => {
     for (let i = 0; i < files.length; i++) {
         formData.append('file[]', files[i]);
     }
+    formData.append('folderName', folder);
 
     uploadImages(formData);
 });
@@ -203,11 +286,7 @@ document.addEventListener('keydown', (event) => {
 
 function attachMediaEvents(medias) {
     medias.forEach((media, index) => {
-        var isVid = false;
-        if (media.tagName == 'VIDEO') {
-            isVid = true;
-            dbg("found video");
-        }
+        dbg("attaching events to " + media.name);
 
         //click open modal
         media.addEventListener('click', () => {
@@ -215,7 +294,6 @@ function attachMediaEvents(medias) {
             modalIndex = index;
             dbg("Index for clicked media: " + index);
         });
-
 
         //mouseover play video and enlarge
         media.addEventListener('mouseover', () => {
@@ -230,7 +308,7 @@ function attachMediaEvents(medias) {
             dbg('hovering height ' + height + "\nscaledheight " + scaledheight + '\nnatheight ' + natheight + "\nnatwidth " + natwidth + "\nwidth " + width + "\nscale " + scaleX + "\nscaley " + scaleY);  // Print the received data for debugging
             media.style.transform = 'scale(' + scaleX + ', 1.1)';
 
-            if (isVid) {
+            if (media.tagName == 'VIDEO') {
                 media.play();
                 dbg("Mousing over video");
             }
@@ -238,10 +316,36 @@ function attachMediaEvents(medias) {
 
         media.addEventListener('mouseout', () => {
             media.style.transform = 'scale(1, 1)';
-            if (isVid) {
+            if (media.tagName == 'VIDEO') {
                 media.pause();
                 dbg("Mousing away video");
             }
         });
     });
+}
+
+function createFolder() {
+    const textinput = document.getElementById("new_folder_name");
+    const folderName = textinput.value;
+    dbg(folderName);
+
+    if (folderName) {
+        fetch('create_folder.php', {
+            method: 'POST',
+            body: JSON.stringify({ folderName }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.text())
+            .then(message => {
+                alert(message); // Display the response message
+                displayImages();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    } else {
+        alert('Please enter a folder name.');
+    }
 }

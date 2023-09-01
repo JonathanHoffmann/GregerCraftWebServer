@@ -17,28 +17,28 @@
     margin-top: calc();
     margin: auto;
     animation: zoom 0.6s;
-    object-fit:scale-down;
+    object-fit: scale-down;
 }
 
-.close, .prev, .next {
-    /*Colors*/
+.close,
+.prev,
+.next {
     color: black;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     font-weight: bold;
     font-size: 3rem;
     position: absolute;
+    cursor: pointer;
 }
 
 .close {
     top: 15px;
     right: 25px;
-    cursor: pointer;
     z-index: 1001;
 }
 
 .prev,
 .next {
-    cursor: pointer;
     top: 50%;
     width: auto;
     padding: 16px;
